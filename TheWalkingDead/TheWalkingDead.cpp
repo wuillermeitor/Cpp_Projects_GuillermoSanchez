@@ -7,7 +7,7 @@ const int ZombieN{ 10 };
 float random(float max, float min) {
 	int limit = max - min;
 	float randomnum = rand() % (limit + 1) + min;
-	
+
 	return randomnum;
 }
 
@@ -21,6 +21,17 @@ enum class Weapon {
 	MAX
 };
 
+std::ostream& operator<< (std::ostream &os, const Weapon &weapon) {
+	switch (weapon) {
+	case Weapon::GUN:				return os << "gun";
+	case Weapon::SHOTGUN:			return os << "shotgun";
+	case Weapon::REVOLVER:			return os << "revolver";
+	case Weapon::SNIPER:			return os << "sniper";
+	case Weapon::MACHINE_GUN:		return os << "machine gun";
+	default:						return os << "fists";
+	}
+}
+
 class Zombie;
 
 class Player {
@@ -32,7 +43,7 @@ public:
 	bool isAlive();
 };
 
-class Zombie{
+class Zombie {
 public:
 	int distanceToPlayer;
 	float speed;
@@ -50,7 +61,7 @@ bool Player::isAlive() {
 	return life > 0;
 }
 
-void Zombie::attack (Player &P) {
+void Zombie::attack(Player &P) {
 	if (distanceToPlayer <= 0) {
 		P.life -= damage;
 	}
@@ -84,5 +95,5 @@ int main() {
 		for (int i = 0; i < ZombieN; i++) {
 
 		}
-	} while (player.isAlive == true && NzombiesAlive>=1);
+	} while (player.isAlive == true && NzombiesAlive >= 1);
 }
