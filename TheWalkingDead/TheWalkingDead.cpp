@@ -78,16 +78,8 @@ int main() {
 	srand(time(nullptr));
 	int NzombiesAlive = ZombieN;
 	Player player;
-	player.weapon = (Weapon)random(0, 6);
-	player.precision = random(0, 1);
-	player.life = 100;
 	Zombie zombies[ZombieN];
-	for (int i = 0; i < ZombieN; i++) {
-		zombies[i].distanceToPlayer = random(20, 200);
-		zombies[i].speed = random(0, 20);
-		zombies[i].damage = random(0, 20);
-		zombies[i].life = 100;
-	}
+
 	bool zombiesAreAlive;
 
 	do {
@@ -95,5 +87,5 @@ int main() {
 		for (int i = 0; i < ZombieN; i++) {
 
 		}
-	} while (player.isAlive == true && NzombiesAlive >= 1);
+	} while (player.isAlive == true);
 }
