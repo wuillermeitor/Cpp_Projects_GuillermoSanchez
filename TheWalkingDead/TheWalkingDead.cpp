@@ -39,8 +39,11 @@ public:
 	Weapon weapon;
 	float precision;
 	int life;
-	void attack(Zombie &);
-	bool isAlive();
+
+	Player():
+		weapon(static_cast<Weapon>(rand()))
+	void attack(Zombie &) const;
+	bool isAlive() const;
 };
 
 class Zombie {
