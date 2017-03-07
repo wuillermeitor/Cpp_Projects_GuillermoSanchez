@@ -4,7 +4,7 @@
 DynArray::DynArray(void) {
 	size_t m_capacity(DYN_ARRAY_DEFAULT_SIZE);
 	size_t m_size(DYN_ARRAY_MAX_SIZE);
-	int *m_data(8);
+	int *m_data(7);
 }
 
 DynArray::DynArray(int *arr, size_t size) {
